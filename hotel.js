@@ -1,4 +1,4 @@
-// const ids = require("ids.json");
+const ids = require("./ids.json");
 const fetch = require("cross-fetch");
 const fs = require('fs');
 
@@ -22,7 +22,7 @@ async function getDetail(id) {
     return name;
 }
 
-const ids = ["70531","68655","67246","66432","66057"]
+// const ids = ["70531","68655","67246","66432","66057"]
 const json = {};
 function worker() {
 
