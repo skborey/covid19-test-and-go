@@ -8,7 +8,7 @@ function getNameAndHospital(text = "") {
   
   const results = text.match(regex)
   
-  return results[1];
+  return results ? results[1] || results[0] + " -- try with idex 0 --" : "NOT DETECT";
 }
 
 async function getDetail(id) {
