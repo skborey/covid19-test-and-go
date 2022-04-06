@@ -1,4 +1,5 @@
 const fetch = require("cross-fetch");
+const fs = require('fs');
 
 async function getHtml(url) {
 
@@ -56,8 +57,17 @@ async function worker() {
     for (let ids of values) {
       hotelIds = hotelIds.concat(ids);
     }
-    console.log(hotelIds)
+    // console.log(hotelIds)
+    save(hotelIds);
   });
 }
 
 worker();
+
+function save(ids) {
+
+fs.writeFile('ids.json', JSON.stringify(ids), function (err) {
+  if (err) return console.log(err);
+  console.log("save ot ids.json file");
+});
+}
