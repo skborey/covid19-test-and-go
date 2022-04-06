@@ -43,8 +43,17 @@ function worker() {
       json[ids[i]] = values[i];
     }
 
-    console.log(JSON.stringify(json))
+    save(JSON.stringify(json));
   });
 }
 
 worker();
+
+
+function save(string) {
+
+  fs.writeFile('hospital.json', string, function (err) {
+    if (err) return console.log(err);
+    console.log("save ot ids.json file");
+  });
+  }
