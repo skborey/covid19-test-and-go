@@ -23,6 +23,7 @@ async function getDetail(id) {
 }
 
 const ids = ["70531","68655","67246","66432","66057"]
+const json = {};
 function worker() {
 
   const tasks = [];
@@ -38,7 +39,11 @@ function worker() {
 
   Promise.all(tasks).then((values) => {
 
-    console.log(values);
+    for (let i=0; i<values.length; i++) {
+      json[ids[i]] = values[i];
+    }
+
+    console.log(JSON.stringify(json))
   });
 }
 
